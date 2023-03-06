@@ -27,16 +27,14 @@ REST stands for REpresentational State Transfer. It is an architectural style fo
 ## What is REST API?
 ```mermaid 
 graph LR
-
 A((Client))--request--> B(API)
-X((client2))-->B
+X((client))--request-->B(API)
 B-->C[web application]
 C-->D[(database)]
 D --> C
 C -- response --> B
 B -- response --> A
 B -- response --> X
-
 ```
 REST API is an application program interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data.
 
@@ -51,7 +49,7 @@ C -->|DELETE| G[Delete data]
 ```
 
 
-## Go to [docs](docs/Rest.md)  learn more about Django REST framework 
+## Go to [docs](./docs/Rest.md)  learn more about Django REST framework 
 
 
        
