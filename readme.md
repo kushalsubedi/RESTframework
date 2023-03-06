@@ -9,16 +9,19 @@ API stands for Application Programming Interface. It is a set of functions and p
 - You pay the bill.
 - The Waiter act as API between you and the kitchen.
 
-``` mermaid
+``` mermaid 
 sequenceDiagram
-    auto activate
-    participant Alice as You
-    participant  Bob as Waiter (Api)
-    participant D as Kitchen    
-    Alice->>Bob: Order food from menu
-    Bob->>D: Take order to the kitchen  
-    Bob->>Alice: Bring food to your table
-    Alice->>Bob: Pay the bill
+autonumber
+participant A as You 
+participant  B as Waiter 
+participant D as Kitchen    
+A->>B: Order food from menu
+note right of B: Waiter act as API
+B->>D: Take order to the kitchen  
+B->>A: Bring food to your table
+A->>B: Pay the bill
+       
+
 ```
 ## What is REST?
 REST stands for REpresentational State Transfer. It is an architectural style for providing standards between computer systems on the web, making it easier for systems to communicate with each other. REST-compliant systems, often called RESTful systems, are characterized by how they are stateless and separate the concerns of client and server.
