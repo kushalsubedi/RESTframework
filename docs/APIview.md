@@ -8,14 +8,15 @@ see [views.py /home](../API/views.py)
 seralizer are used to convert complex data such as querysets and model instances into native Python datatypes that can then be easily rendered into JSON, XML or other content types. Serializers also provide deserialization, allowing parsed data to be converted back into complex types, after first validating the incoming data.
 ```mermaid
 flowchart LR;
-A[Models / <br>complex data] --> B[Serializer]
-B --> C[JSON data]
-C --> D[deserialization]
-D --> A
-B --> E[data validation]
-E --> F[save data]
-F --> G[render data]
-C --> G
+A[complex object] --> B[serializer]
+B --> C[(database)]
+B ----> E(file)
+B--> D{{memory}}
+
+C-->F[deserializer]
+E -->F
+D ---F
+F --> G[complex object]
 ```
 **deserialization** is the process of converting data from a format that is easy to store or transmit to a format that is easy to use.
 
@@ -37,6 +38,8 @@ class Todo(BaseModel):
         return self.title
 
 ```
+*serializers.py*
+
 ```python
 !usr/bin/env python3
 serializers.py
