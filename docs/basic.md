@@ -61,8 +61,8 @@ create new api app
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
-        'rest_framework',
-        'api.apps.ApiConfig',
+        'rest_framework', # add this line
+        'api.apps.ApiConfig', # add this line
     ]
 ```
 configure URLS of the project
@@ -93,5 +93,5 @@ create new views.py file in the api app
         return HttpResponse('Hello World')
 ```
 
-
+[learn basic serialization and views](./APIview.md)
         
