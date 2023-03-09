@@ -1,4 +1,8 @@
+## wrapping API view
+- The ```@api_view ``` decorator for working with function based views.
+- The ```APIView``` class for working with class-based views.
 
+- The Response class for returning responses from API views.
 
 ## @api_view decorator
 @api_view decorator is used to convert function based views into API views. It takes a list of HTTP methods that the view should respond to as its only argument. If the incoming request doesn't match one of the specified methods, a 405 Method Not Allowed response will be returned.
@@ -15,7 +19,7 @@ B--> D{{memory}}
 
 C-->F[deserializer]
 E -->F
-D ---F
+D -->F
 F --> G[complex object]
 ```
 **deserialization** is the process of converting data from a format that is easy to store or transmit to a format that is easy to use.
@@ -79,3 +83,5 @@ def create_todo(request)->Response:
 
 
 <br>[official documentation](https://www.django-rest-framework.org/api-guide/serializers/)
+
+##for [crud operations](./crud.md) visit this link

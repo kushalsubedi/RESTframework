@@ -93,5 +93,5 @@ create new views.py file in the api app
         return HttpResponse('Hello World')
 ```
 
-[learn basic serialization and views](./APIview.md)
+[learn basic serialization and views](./Serializers_and_Functionview.md)
         
