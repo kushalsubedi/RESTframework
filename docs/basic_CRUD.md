@@ -60,6 +60,9 @@ def update_object(request, pk):
 ```
 
 - In the above code, we use the @api_view decorator to specify that this function-based view can only be accessed via PUT or PATCH request. We then use a try-except block to retrieve the object with the specified primary key (pk). If the object does not exist, we return a 404 status code. If the object exists, we create a new instance of the MyModelSerializer class, passing in the retrieved object as the instance to be updated and the request.data as the data to be serialized. We then check if the serializer is valid, and if it is, we save the serializer and return the serialized data. If the serializer is not valid, we return the validation errors with a status code of 400.
+for demo code [click here](../API/views.py)
+
+for more information visit [here](https://www.django-rest-framework.org/tutorial/quickstart/)
 
 
 
