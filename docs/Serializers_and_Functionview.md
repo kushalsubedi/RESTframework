@@ -7,6 +7,40 @@
 ## @api_view decorator
 @api_view decorator is used to convert function based views into API views. It takes a list of HTTP methods that the view should respond to as its only argument. If the incoming request doesn't match one of the specified methods, a 405 Method Not Allowed response will be returned.
 see [views.py /home](../API/views.py)
+```python
+@api_view(['GET','POST','DELETE']) # or http_method_names = ['get']    
+def home (request)-> Response:
+    if request.method == 'GET':
+         return Response({
+        'message': 'Hello World!',
+        'status':200,
+        'method':'GET'
+        })
+    if request.method == 'POST':
+         return Response({
+        'message': 'Hello POST',
+        'status':200,
+        'method':'POST'
+        })
+    if request.method == 'PUT':
+            return Response({
+            'message': 'Hello PUT',
+            'status':200,
+            'method':'PUT'
+            })
+    if request.method == 'DELETE':
+            return Response({
+            'message': 'Hello DELETE',
+         'status':200,
+            'method':'DELETE'
+            })
+    else :
+          return Response({
+        'message': 'Hello torilaurey',
+        'status':405,
+        'method':'Method Not Allowed'
+          })
+```
 
 ## Serializers 
 seralizer are used to convert complex data such as querysets and model instances into native Python datatypes that can then be easily rendered into JSON, XML or other content types. Serializers also provide deserialization, allowing parsed data to be converted back into complex types, after first validating the incoming data.

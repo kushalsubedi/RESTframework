@@ -11,6 +11,7 @@ class BaseModel(models.Model):
 
 
 class Todo(BaseModel):
+    
     title=models.CharField(max_length=255)
     description=models.TextField()
     completed=models.BooleanField(default=False)

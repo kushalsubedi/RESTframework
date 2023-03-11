@@ -1,9 +1,18 @@
 from django.urls import path
-from .views import home,create_todo,Listview,update
+from . import views
 
+
+from . import views
 urlpatterns = [
-        path('', home, name='home'),
-        path('create', create_todo, name='create-todo'),
-        path('show',Listview,name="show"),
-        path('update/<int:id>',update,name="update"),
+         path('', views.Todo_view.as_view(),name='api'),
+        path('create', views.create_todo, name='create-todo'),
+        path('show',views.Listview,name="show"),
+        path('update',views.update,name="update"),
+        path('delete/<str:uid>',views.delete,name="delete"),
+       
+
+        
+
+        
     ]
+

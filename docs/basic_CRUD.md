@@ -62,7 +62,47 @@ def update_object(request, pk):
 - In the above code, we use the @api_view decorator to specify that this function-based view can only be accessed via PUT or PATCH request. We then use a try-except block to retrieve the object with the specified primary key (pk). If the object does not exist, we return a 404 status code. If the object exists, we create a new instance of the MyModelSerializer class, passing in the retrieved object as the instance to be updated and the request.data as the data to be serialized. We then check if the serializer is valid, and if it is, we save the serializer and return the serialized data. If the serializer is not valid, we return the validation errors with a status code of 400.
 for demo code [click here](../API/views.py)
 
+## APIView
+- The APIView class is a subclass of the View class. It is used to define custom API endpoints. It provides a set of methods that are mapped to HTTP methods. For example, the get method is mapped to the GET HTTP method. The post method is mapped to the POST HTTP method, and so on. Let's see how we can use the APIView class to implement CRUD operations.
+
+**CRUD operation with APIview**
+ 
+ ```python
+from rest_framework.views import APIView
+class MyModelList(APIView):
+    def get(self, request):  # for listing all objects
+        objs = MyModel.objects.all()
+        serializer = MyModelSerializer(objs, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request):  # for creating new object
+        serializer = MyModelSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class MyModelDetail(APIView):
+   
+    def get(self, request, pk): #for getting single object
+        obj = self.get_object(pk)
+        serializer = MyModelSerializer(obj)
+        return Response(serializer.data)
+    
+    def put(self, request, pk): #for updating single object
+        obj = self.get_object(pk)
+        serializer = MyModelSerializer(obj, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, pk): #for deleting single object
+        obj = self.get_object(pk)
+        obj.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+```
+
+
 for more information visit [here](https://www.django-rest-framework.org/tutorial/quickstart/)
-
-
 

@@ -52,6 +52,7 @@ C -->|DELETE| G[Delete data]
 ## Go to [docs](./docs/basic.md)  learn more about Django REST framework 
 
 
+
        
 
 
