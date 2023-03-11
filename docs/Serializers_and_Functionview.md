@@ -42,6 +42,7 @@ def home (request)-> Response:
           })
 ```
 
+
 ## Serializers 
 seralizer are used to convert complex data such as querysets and model instances into native Python datatypes that can then be easily rendered into JSON, XML or other content types. Serializers also provide deserialization, allowing parsed data to be converted back into complex types, after first validating the incoming data.
 ```mermaid
@@ -118,4 +119,4 @@ def create_todo(request)->Response:
 
 <br>[official documentation](https://www.django-rest-framework.org/api-guide/serializers/)
 
-##for [crud operations](./basic.md) visit this link
+##for [crud operations](./basic_CRUD.md) visit this link
