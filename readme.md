@@ -1,3 +1,17 @@
+
+# This Documentation is open for contribution
+ 
+<ul>
+<li> - clone the repo 
+<li> - make a new branch
+<li> - choose a topic eg: pagination,Authtoken,Authentication,etc
+    <li>- make changes
+    <li>- create a new readme.md file inside docs folder
+   <li> - add your name in contributors.md file
+    <li>- create a pull request
+</ul>
+
+
 ## What is API? 
 API stands for Application Programming Interface. It is a set of functions and procedures that allow the creation of applications that access the features or data of an operating system, application, or other service.
 **example** *(resturant)*:
