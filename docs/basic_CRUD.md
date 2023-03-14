@@ -102,6 +102,13 @@ class MyModelDetail(APIView):
         obj.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 ```
+- In the above code, we create two classes, MyModelList and MyModelDetail. The MyModelList class is used to implement the list and create operations. The MyModelDetail class is used to implement the retrieve, update and delete operations. 
+We use the get method to implement the list operation. 
+We use the post method to implement the create operation. 
+We use the get method to implement the retrieve operation. We use the put method to implement the update operation.
+ We use the delete method to implement the delete operation. We use the get_object method to retrieve the object with the specified primary key (pk). We use the get_object_or_404 method to retrieve the object with the specified primary key (pk). If the object does not exist, we return a 404 status code. If the object exists, 
+ 
+ we create a new instance of the MyModelSerializer class, passing in the retrieved object as the instance to be updated and the request.data as the data to be serialized. We then check if the serializer is valid, and if it is, we save the serializer and return the serialized data. If the serializer is not valid, we return the validation errors with a status code of 400.
 
 
 for more information visit [here](https://www.django-rest-framework.org/tutorial/quickstart/)
