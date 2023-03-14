@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form method="POST">
+        
+        title: <input type="text" name="title" id="title">
+        description: <input type="text" name="description" id="description">
+       
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<script type="text/javascript">
+    const form = document.querySelector('form');
+    form.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        const title = document.querySelector('#title').value;
+        const description = document.querySelector('#description').value;
+        fetch('http://127.0.0.1:8000/api/',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({
+                title:title,
+                description:description
+            }),
+        }).then(res=>{
+            if (res.ok){
+                return res.json()}
+                else{
+                    throw new Error('Something went wrong')
+                }
+            }).then (data=>{
+                console.log(data)
+            })
+        })
+
+
+    </script>
+    </body>
+</html>
